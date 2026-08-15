@@ -1,3 +1,4 @@
+//Each number should appear either once or twice, and only one number should appear once or code will give wrong answer
 #include <bits/stdc++.h>
 using namespace std;
 
