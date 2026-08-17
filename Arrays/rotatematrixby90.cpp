@@ -4,10 +4,8 @@ using namespace std;
 int main() {
 
     int n;
-
     cout << "Enter size of matrix: ";
     cin >> n;
-
     vector<vector<int>> matrix(n, vector<int>(n));
 
     cout << "Enter matrix elements:" << endl;
@@ -41,9 +39,7 @@ int main() {
         for (int j = 0; j < n; j++) {
             cout << matrix[i][j] << " ";
         }
-
         cout << endl;
     }
-
     return 0;
 }
