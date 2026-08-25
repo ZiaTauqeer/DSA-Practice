@@ -14,7 +14,7 @@ public:
 
         // No structured binding, works with older C++
         for (auto& pair : freq) {
-            bucket[pair.second].push_back(pair.first);
+            bucket[pair.second].push_back(pair.first);//if using auto& [ch,f] it will give error newer version of c++ required for it to work
         }
 
         string result = "";
