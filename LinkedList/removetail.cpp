@@ -41,7 +41,7 @@ int main() {
     head = removeTail(head);
 
     // Print new head's data
-    cout << head->data;
+    cout << head->data; // returns head
 
     return 0;
 }
