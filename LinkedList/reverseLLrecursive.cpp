@@ -5,39 +5,38 @@ struct ListNode {
     int val;
     ListNode* next;
 
-    ListNode(int x) {
-        val = x;
-        next = nullptr;
-    }
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode* temp = head;
-        ListNode* prev = nullptr;
-
-        while (temp != nullptr) {
-            ListNode* front = temp->next;
-            temp->next = prev;
-            prev = temp;
-            temp = front;
+        if (head == nullptr || head->next == nullptr) {
+            return head;
         }
 
-        return prev;
+        ListNode* newHead = reverseList(head->next);
+
+        ListNode* front = head->next;
+        front->next = head;
+        head->next = nullptr;
+
+        return newHead;
     }
 };
 
 void printList(ListNode* head) {
     while (head != nullptr) {
-        cout << head->val << " -> ";
+        cout << head->val << " ";
         head = head->next;
     }
-    cout << "NULL" << endl;
+    cout << endl;
 }
 
 int main() {
-    // Creating: 1 -> 2 -> 3 -> 4 -> 5 -> NULL
+    // Creating: 1 -> 2 -> 3 -> 4 -> 5
     ListNode* head = new ListNode(1);
     head->next = new ListNode(2);
     head->next->next = new ListNode(3);
@@ -55,5 +54,3 @@ int main() {
 
     return 0;
 }
-
-//TC : O(N) SC:O(1)
