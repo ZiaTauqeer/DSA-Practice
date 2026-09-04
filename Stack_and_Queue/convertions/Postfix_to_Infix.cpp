@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Function to convert prefix to infix
-string prefixToInfix(string prefix) {
+// Function to convert postfix to infix
+string postfixToInfix(string postfix) {
     stack<string> s;
-    int n = prefix.size();
+    int n = postfix.size();
 
-    // Traverse the prefix expression from right to left
-    for (int i = n - 1; i >= 0; i--) {
-        char c = prefix[i];
+    // Traverse the postfix expression from left to right
+    for (int i = 0; i < n; i++) {
+        char c = postfix[i];
 
         // If the character is an operand, push it to the stack
         if (isalnum(c)) {
             s.push(string(1, c));
         } else {
             // Pop two operands from the stack
-            string op1 = s.top(); s.pop();
             string op2 = s.top(); s.pop();
+            string op1 = s.top(); s.pop();
 
             // Form the new infix expression and push back to stack
             s.push("(" + op1 + c + op2 + ")");
@@ -28,7 +28,7 @@ string prefixToInfix(string prefix) {
 }
 
 int main() {
-    string prefix = "*-A/BC-/AKL";
-    cout << "Infix Expression: " << prefixToInfix(prefix) << endl;
+    string postfix = "AB*C+";
+    cout << "Infix Expression: " << postfixToInfix(postfix) << endl;
     return 0;
 }
