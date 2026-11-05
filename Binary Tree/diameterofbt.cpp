@@ -66,6 +66,5 @@ int main() {
 
     cout << "Diameter of Binary Tree: "
          << obj.diameterOfBinaryTree(root) << endl;
-
     return 0;
 }
